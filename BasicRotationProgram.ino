@@ -34,6 +34,7 @@ void setup() {
   // set1：ニュートラル
   moveHipNeutralL(0); 
   moveHipNeutralR(2);
+  //moveHipNeutralL(4); 
   moveHipNeutralL(4); 
   moveHipNeutralR(6);
   putDownLegL(1); 
@@ -129,7 +130,8 @@ void turnRightStep() {
   // 左後脚（BL）前に
   delay(delay2);
   liftLegL(5);
-  moveHipForwardL(4);
+  //moveHipForwardL(4);
+  moveHipForwardL(8);
   delay(delay1);
   putDownLegL(5);
 
@@ -150,7 +152,8 @@ void turnRightStep() {
 
   // 押し出し
   moveHipBackwardL2(0);
-  moveHipBackwardL2(4);
+  //moveHipBackwardL2(4);
+  moveHipBackwardL2(8);
   moveHipForwardR(2);
   moveHipForwardR(6);
 }
@@ -176,7 +179,8 @@ void turnLeftStep() {
   // 左後脚（BL）後ろに
   liftLegL(5);
   delay(delay2);
-  moveHipBackwardL2(4);
+  //moveHipBackwardL2(4);
+  moveHipBackwardL2(8);
   delay(delay1);
   putDownLegL(5);
   delay(delay1);
@@ -193,7 +197,8 @@ void turnLeftStep() {
   moveHipBackwardR2(2);
   moveHipBackwardR2(6);
   moveHipForwardL(0);
-  moveHipForwardL(4);
+  moveHipForwardL(8);
+  //moveHipForwardL(4);
   delay(delay2);
 }
 
