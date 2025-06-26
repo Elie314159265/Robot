@@ -1,3 +1,4 @@
+
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
 
@@ -35,7 +36,7 @@ void setup() {
   moveHipNeutralL(0); 
   moveHipNeutralR(2);
   //moveHipNeutralL(4); 
-  moveHipNeutralL(4); 
+  moveHipNeutralL(8); 
   moveHipNeutralR(6);
   putDownLegL(1); 
   putDownLegR(3); 
@@ -48,11 +49,7 @@ void setup() {
 void loop() {
   // 右旋回して
   turnRightStep();
-  
-  // 左旋回して
   //turnLeftStep();
-  
-  //delay(delay2);
 }
 
 // レッグ番号とサーボ番号
@@ -120,22 +117,23 @@ void moveHipNeutralR(int hipChannel) {
 
 // 右旋回（時計回り）
 void turnRightStep() {
-  // 左前脚（FL）前に
+  //1
+  // 右前脚（FR）後ろに
   delay(delay2);
-  liftLegL(1);
-  moveHipForwardL(0);
+  liftLegR(3);
+  moveHipBackwardR2(2);
   delay(delay1);
-  putDownLegL(1);
+  putDownLegR(3);
+  delay(delay2);
 
   // 左後脚（BL）前に
-  delay(delay2);
   liftLegL(5);
   //moveHipForwardL(4);
   moveHipForwardL(8);
   delay(delay1);
   putDownLegL(5);
 
-  // 右後脚（BR）後ろに
+// 右後脚（BR）後ろに
   delay(delay2);
   liftLegR(7);
   moveHipBackwardR2(6);
@@ -143,12 +141,52 @@ void turnRightStep() {
   putDownLegR(7);
   delay(delay2);
 
+
+  // 左前脚（FL）前に
+  liftLegL(1);
+  moveHipForwardL(0);
+  delay(delay1);
+  putDownLegL(1);
+  delay(delay2);
+
+  // 押し出し
+  moveHipBackwardL2(0);
+  //moveHipBackwardL2(4);
+  moveHipBackwardL2(8);
+  moveHipForwardR(2);
+  moveHipForwardR(6);
+
+  //2
   // 右前脚（FR）後ろに
   delay(delay2);
   liftLegR(3);
   moveHipBackwardR2(2);
   delay(delay1);
   putDownLegR(3);
+  delay(delay2);
+
+  // 左後脚（BL）前に
+  liftLegL(5);
+  //moveHipForwardL(4);
+  moveHipForwardL(8);
+  delay(delay1);
+  putDownLegL(5);
+
+// 右後脚（BR）後ろに
+  delay(delay2);
+  liftLegR(7);
+  moveHipBackwardR2(6);
+  delay(delay1);
+  putDownLegR(7);
+  delay(delay2);
+
+
+  // 左前脚（FL）前に
+  liftLegL(1);
+  moveHipForwardL(0);
+  delay(delay1);
+  putDownLegL(1);
+  delay(delay2);
 
   // 押し出し
   moveHipBackwardL2(0);
@@ -160,38 +198,72 @@ void turnRightStep() {
 
 // 左旋回（反時計回り）
 void turnLeftStep() {
+  //1
   // 右前脚（FR）前に
   liftLegR(3);
-  delay(delay2);
   moveHipForwardR(2);
   delay(delay1);
   putDownLegR(3);
-  delay(delay1);
-
-  // 右後脚（BR）前に
-  liftLegR(7);
   delay(delay2);
-  moveHipForwardR(6);
-  delay(delay1);
-  putDownLegR(7);
-  delay(delay1);
 
   // 左後脚（BL）後ろに
   liftLegL(5);
-  delay(delay2);
   //moveHipBackwardL2(4);
   moveHipBackwardL2(8);
   delay(delay1);
   putDownLegL(5);
+  delay(delay2);
+
+  // 右後脚（BR）前に
+  liftLegR(7);
+  moveHipForwardR(6);
   delay(delay1);
+  putDownLegR(7);
+  delay(delay2);
 
   // 左前脚（FL）後ろに
   liftLegL(1);
-  delay(delay2);
   moveHipBackwardL2(0);
   delay(delay1);
   putDownLegL(1);
+  delay(delay2);
+
+  // 押し出し
+  moveHipBackwardR2(2);
+  moveHipBackwardR2(6);
+  moveHipForwardL(0);
+  moveHipForwardL(8);
+  //moveHipForwardL(4);
+  delay(delay2);
+  //2
+  // 右前脚（FR）前に
+  liftLegR(3);
+  moveHipForwardR(2);
   delay(delay1);
+  putDownLegR(3);
+  delay(delay2);
+
+  // 左後脚（BL）後ろに
+  liftLegL(5);
+  //moveHipBackwardL2(4);
+  moveHipBackwardL2(8);
+  delay(delay1);
+  putDownLegL(5);
+  delay(delay2);
+
+  // 右後脚（BR）前に
+  liftLegR(7);
+  moveHipForwardR(6);
+  delay(delay1);
+  putDownLegR(7);
+  delay(delay2);
+
+  // 左前脚（FL）後ろに
+  liftLegL(1);
+  moveHipBackwardL2(0);
+  delay(delay1);
+  putDownLegL(1);
+  delay(delay2);
 
   // 押し出し
   moveHipBackwardR2(2);
